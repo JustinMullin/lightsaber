@@ -8,6 +8,7 @@ This project shows off libGDX, OpenGL ES 2.0 shaders, and the effect a few sound
 ```./gradlew run``` to run locally.
 
 Lightsaber hilt image credit [Mike Dean](https://crimzind.wordpress.com/2012/04/02/lukes-rotj-lightsaber/).
+Background image credit [Dawid Michalczyk](http://www.art.eonworks.com/gallery/texture/metal_sci-fi_texture-200507.html).
 
 Controls:
 ---
