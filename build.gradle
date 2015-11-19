@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+    dependencies {
+    }
+}
+
+allprojects {
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+    apply plugin: "scala"
+
+    version = '1.0'
+    ext {
+        appName = "lightsaber-libgdx"
+        gdxVersion = '1.7.1'
+        scalaVersion = '2.11.7'
+        roboVMVersion = '1.9.0'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+
+    dependencies {
+        compile "org.scala-lang:scala-library:$scalaVersion"
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java"
+    apply plugin: "scala"
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+        compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+    }
+}
+
+project(":core") {
+    apply plugin: "java"
+    apply plugin: "scala"
+
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        compile fileTree(dir: 'lib', include: '*.jar')
+    }
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}

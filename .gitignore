@@ -1,0 +1,8 @@
+.gradle
+.idea
+build/
+core/build/
+desktop/build/
+*.iml
+*.DS_STORE
+lightsaber.jar
