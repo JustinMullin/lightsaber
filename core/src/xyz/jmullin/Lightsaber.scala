@@ -89,7 +89,7 @@ object Lightsaber extends Entity2D {
     if(Gdx.input.isCursorCatched) {
       position.set(mouseV)
 
-      tilt -= mouseVelocity.x/10f
+      tilt -= mouseVelocity.x/3f
       tilt += (0-tilt)/10f
 
       if(mouseVelocity.len() > 1f && on && extend >= 0.99f) {

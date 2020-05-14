@@ -9,6 +9,7 @@ object Main extends App {
   config.title = "Lightsaber"
   config.width = 800
   config.height = 600
+  config.resizable = false
 
   new LwjglApplication(new Application, config)
 }
